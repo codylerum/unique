@@ -1,0 +1,17 @@
+Unique
+================
+
+Unique aims to create a link:https://github.com/twitter/snowflake/[Twitter Snowflake] like identifier.
+
+The result is a signed 64 bit long broken down as follows
+
+* bit 64 -  Sign just like in java
+* bit 63-23 - Timestamp in milliseconds utilizing same arbitrary EPOCH.
+* bit 22-19 - 4 bits of Data Center ID
+* bit 18-13 - 6 bits of Server ID
+* bit 12-1 - 12 bits Incrementing sequence
+
+Care must be taken to ensure the server has accurate time (ntp).
+
+Separate instances must use different datacenter/server id combinations. Assignment and coordination
+is on you.
